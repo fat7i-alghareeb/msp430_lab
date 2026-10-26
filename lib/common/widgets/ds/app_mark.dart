@@ -1,43 +1,30 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_config.dart';
-
-/// The app's mark: its initial on the primary colour.
+/// The app's mark: the isometric MSP430 with its lid lifted.
 ///
-/// Swap the child for your logo once; every place that shows the mark — the
-/// sidebar, the sign-in brand panel, the splash, the title bar — reads it
-/// from here.
+/// Every place that shows the mark — the sidebar, the splash, the title bar,
+/// the About page — reads it from here.
+///
+/// Below [detailMinSize] the full artwork turns to mush, so a simplified chip
+/// (same colours, no lid) is drawn instead.
 class AppMark extends StatelessWidget {
-  const AppMark({super.key, this.size = 32, this.inverted = false});
+  const AppMark({super.key, this.size = 32});
 
   final double size;
 
-  /// The colours swapped, for a mark ON the primary colour.
-  final bool inverted;
+  /// Under this size the simplified mark is used.
+  static const double detailMinSize = 24;
+
+  static const String _full = 'assets/images/app_logo.png';
+  static const String _small = 'assets/images/app_logo_small.png';
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-    final fill = inverted ? colors.onPrimary : colors.primary;
-    final ink = inverted ? colors.primary : colors.onPrimary;
     return ExcludeSemantics(
-      child: Container(
+      child: Image.asset(
+        size < detailMinSize ? _small : _full,
         width: size,
         height: size,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: fill,
-          borderRadius: BorderRadius.circular(size * 0.28),
-        ),
-        child: Text(
-          AppConfig.appTitle.characters.first.toUpperCase(),
-          style: TextStyle(
-            color: ink,
-            fontSize: size * 0.5,
-            fontWeight: FontWeight.w800,
-            height: 1,
-          ),
-        ),
       ),
     );
   }

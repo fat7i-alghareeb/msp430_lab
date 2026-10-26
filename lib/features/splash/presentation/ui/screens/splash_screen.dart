@@ -19,11 +19,12 @@ import '../../../../../utils/helpers/app_strings.dart';
 /// the session, the onboarding flag and — behind it — the first tab's data
 /// (`BlocPreloader`).
 ///
-/// - **The mark rises in here, not in the native splash.** The native splash
-///   (`flutter_native_splash.yaml`) is the bare background colour, and this
-///   screen draws on the SAME colour, so the hand-over is invisible; a mark
-///   in the native splash would appear, vanish and build itself again.
-///   `AppMark` is sized to the window class (72 · 96 · 112).
+/// - **The mark is static here.** The native splash
+///   (`flutter_native_splash.yaml`) already shows the logo, centred, on the
+///   SAME background colour, and this screen draws the same logo in the same
+///   place, so the hand-over is invisible; an animated mark would appear,
+///   vanish and build itself again. `AppMark` is sized to the window class
+///   (112 · 128).
 /// - The name and the tagline rise in, then three pulsing dots.
 /// - The entrance clock starts once the first frame is out — started in
 ///   `initState` it would run under the OS splash (which only fades once the
@@ -91,6 +92,11 @@ class _SplashScreenState extends State<SplashScreen>
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final reducedMotion = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
+    // 112 matches the logo the native splash draws on a phone.
+    final markSize = switch (AppLayoutScope.maybeOf(context)?.windowSize) {
+      null || WindowSize.compact || WindowSize.medium => 112.0,
+      _ => 128.0,
+    };
 
     return AppScaffold.body(
       // The splash paints edge to edge: the OS splash it replaces has no safe
@@ -101,32 +107,20 @@ class _SplashScreenState extends State<SplashScreen>
       ),
       child: Stack(
         children: <Widget>[
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.screenMargin,
-              ),
+          // The mark sits at the exact centre and does not animate: the
+          // native splash (`flutter_native_splash.yaml`) shows the same logo
+          // there, so the hand-over is invisible. Only the text rises in.
+          Center(child: AppMark(size: markSize)),
+          Positioned(
+            left: AppSpacing.screenMargin,
+            right: AppSpacing.screenMargin,
+            top: MediaQuery.sizeOf(context).height / 2 +
+                markSize / 2 +
+                AppSpacing.lg,
+            child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  // The mark rises with the name, sized to the window: 72
-                  // on a phone, 96 at medium width, 112 from 840dp.
-                  _Rise(
-                    animation: _name,
-                    reducedMotion: reducedMotion,
-                    distance: 16,
-                    startScale: 0.94,
-                    child: AppMark(
-                      size: switch (AppLayoutScope.maybeOf(
-                        context,
-                      )?.windowSize) {
-                        null || WindowSize.compact => 72,
-                        WindowSize.medium => 96,
-                        _ => 112,
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: AppSpacing.lg),
                   _Rise(
                     animation: _name,
                     reducedMotion: reducedMotion,

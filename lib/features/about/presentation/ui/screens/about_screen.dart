@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../common/widgets/ds/app_content_width.dart';
+import '../../../../../common/widgets/ds/app_mark.dart';
 import '../../../../../utils/helpers/app_strings.dart';
 import '../../../../topics/presentation/states/topics_bloc.dart';
 
@@ -21,6 +22,8 @@ class AboutScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 120),
           children: <Widget>[
+            const Center(child: AppMark(size: 92)),
+            const SizedBox(height: 16),
             Text(AppStrings.aboutTitle, style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w800)),
             const SizedBox(height: 8),
             Text(AppStrings.aboutBody, style: text.bodyLarge?.copyWith(height: 1.6)),

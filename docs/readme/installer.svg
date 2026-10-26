@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" width="1200" height="250" role="img" aria-label="Building the Windows installer">
+<style>
+  .fill { animation: fill 8s cubic-bezier(.4,0,.2,1) infinite; transform-box: fill-box; transform-origin: left; }
+  @keyframes fill { 0% { transform: scaleX(0); } 85%,100% { transform: scaleX(1); } }
+  .tick { opacity: 0; animation: tick 8s steps(1) infinite; }
+  @keyframes tick { 0% { opacity: 0; } 85% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .tick { opacity: 1; } }
+</style>
+<defs>
+  <radialGradient id="ibg" cx="30%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#27336B"/><stop offset=".5" stop-color="#151B3A"/><stop offset="1" stop-color="#0B0E1C"/>
+  </radialGradient>
+  <pattern id="ibggrid" width="32" height="32" patternUnits="userSpaceOnUse">
+    <path d="M32 0H0V32" fill="none" stroke="#8FA2FF" stroke-opacity=".07"/>
+  </pattern>
+</defs>
+<rect width="1200" height="250" rx="24" fill="url(#ibg)"/>
+<rect width="1200" height="250" rx="24" fill="url(#ibggrid)"/>
+<g font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif">
+<rect x="46" y="36" width="1108" height="44" rx="10" fill="#0B0E1C" fill-opacity=".7" stroke="#3A4270"/>
+<text x="66" y="64" font-size="15" fill="#6E7AB5" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">$</text>
+<text x="84" y="64" font-size="15" fill="#EEF1FF" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">dart run tool/build_windows_installer.dart</text>
+<rect x="46" y="104" width="250" height="90" rx="14" fill="#1A2045" stroke="#4A7BD0" stroke-opacity=".5"/>
+<text x="64" y="136" font-size="15" font-weight="700" fill="#EEF1FF" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">flutter build windows</text>
+<text x="64" y="160" font-size="13" fill="#AEB8E8">Release folder</text>
+<rect x="64" y="174" width="214" height="6" rx="3" fill="#0B0E1C"/>
+<rect class="fill" style="animation-delay:0s" x="64" y="174" width="214" height="6" rx="3" fill="#4A7BD0"/>
+<g class="tick" style="animation-delay:0s"><circle cx="272" cy="130" r="10" fill="#4A7BD0"/><path d="M267 130l4 4 7-8" stroke="#0B0E1C" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+<rect x="332" y="104" width="250" height="90" rx="14" fill="#1A2045" stroke="#2FA371" stroke-opacity=".5"/>
+<text x="350" y="136" font-size="15" font-weight="700" fill="#EEF1FF" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">write msp430_lab.iss</text>
+<text x="350" y="160" font-size="13" fill="#AEB8E8">Inno Setup script</text>
+<rect x="350" y="174" width="214" height="6" rx="3" fill="#0B0E1C"/>
+<rect class="fill" style="animation-delay:2s" x="350" y="174" width="214" height="6" rx="3" fill="#2FA371"/>
+<g class="tick" style="animation-delay:2s"><circle cx="558" cy="130" r="10" fill="#2FA371"/><path d="M553 130l4 4 7-8" stroke="#0B0E1C" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+<path d="M304 149h20m-6-6l6 6-6 6" stroke="#AEB8E8" stroke-width="2" fill="none"/>
+<rect x="618" y="104" width="250" height="90" rx="14" fill="#1A2045" stroke="#D9822B" stroke-opacity=".5"/>
+<text x="636" y="136" font-size="15" font-weight="700" fill="#EEF1FF" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">ISCC.exe</text>
+<text x="636" y="160" font-size="13" fill="#AEB8E8">compile + LZMA2</text>
+<rect x="636" y="174" width="214" height="6" rx="3" fill="#0B0E1C"/>
+<rect class="fill" style="animation-delay:4s" x="636" y="174" width="214" height="6" rx="3" fill="#D9822B"/>
+<g class="tick" style="animation-delay:4s"><circle cx="844" cy="130" r="10" fill="#D9822B"/><path d="M839 130l4 4 7-8" stroke="#0B0E1C" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+<path d="M590 149h20m-6-6l6 6-6 6" stroke="#AEB8E8" stroke-width="2" fill="none"/>
+<rect x="904" y="104" width="250" height="90" rx="14" fill="#1A2045" stroke="#9DB0FF" stroke-opacity=".5"/>
+<text x="922" y="136" font-size="15" font-weight="700" fill="#EEF1FF" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">setup.exe</text>
+<text x="922" y="160" font-size="13" fill="#AEB8E8">wizard · Start menu · uninstaller</text>
+<rect x="922" y="174" width="214" height="6" rx="3" fill="#0B0E1C"/>
+<rect class="fill" style="animation-delay:6s" x="922" y="174" width="214" height="6" rx="3" fill="#9DB0FF"/>
+<g class="tick" style="animation-delay:6s"><circle cx="1130" cy="130" r="10" fill="#9DB0FF"/><path d="M1125 130l4 4 7-8" stroke="#0B0E1C" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+<path d="M876 149h20m-6-6l6 6-6 6" stroke="#AEB8E8" stroke-width="2" fill="none"/>
+<text x="600" y="226" text-anchor="middle" font-size="13" fill="#6E7AB5">→ build/installer/msp430_lab-&lt;version&gt;-setup.exe</text>
+</g></svg>

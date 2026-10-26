@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 608" width="1200" height="608" role="img" aria-label="The twelve topics, in three parts">
+<style>
+  .card { animation: up .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .bar { animation: grow 1.2s cubic-bezier(.2,.8,.2,1) both; transform-box: fill-box; transform-origin: left; }
+  @keyframes grow { from { transform: scaleX(0); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <radialGradient id="tbg" cx="30%" cy="20%" r="95%">
+    <stop offset="0" stop-color="#27336B"/><stop offset=".5" stop-color="#151B3A"/><stop offset="1" stop-color="#0B0E1C"/>
+  </radialGradient>
+  <pattern id="tbggrid" width="32" height="32" patternUnits="userSpaceOnUse">
+    <path d="M32 0H0V32" fill="none" stroke="#8FA2FF" stroke-opacity=".07"/>
+  </pattern>
+</defs>
+<rect width="1200" height="608" rx="24" fill="url(#tbg)"/>
+<rect width="1200" height="608" rx="24" fill="url(#tbggrid)"/>
+<g font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif">
+<text x="30" y="58" font-size="18" font-weight="700" fill="#EEF1FF">Part 1 · Architecture</text>
+<text x="390" y="58" font-size="16" fill="#4A7BD0" text-anchor="start" direction="rtl">المعمارية</text>
+<rect class="bar" style="animation-delay:0.00s" x="30" y="72" width="360" height="4" rx="2" fill="#4A7BD0"/>
+<g class="card" style="animation-delay:0.00s">
+  <rect x="30" y="100" width="360" height="96" rx="14" fill="#1A2045" stroke="#4A7BD0" stroke-opacity=".45"/>
+  <rect x="30" y="100" width="5" height="96" rx="2.5" fill="#4A7BD0"/>
+  <text x="54" y="132" font-size="12" font-weight="700" fill="#4A7BD0" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">1.1</text>
+  <text x="374" y="132" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">بنية MSP430</text>
+  <text x="54" y="156" font-size="18" font-weight="700" fill="#EEF1FF">Architecture</text>
+  <text x="54" y="178" font-size="12.5" fill="#AEB8E8">The die, its 12 blocks, the MAB and MDB buses</text>
+</g>
+<g class="card" style="animation-delay:0.08s">
+  <rect x="30" y="212" width="360" height="96" rx="14" fill="#1A2045" stroke="#4A7BD0" stroke-opacity=".45"/>
+  <rect x="30" y="212" width="5" height="96" rx="2.5" fill="#4A7BD0"/>
+  <text x="54" y="244" font-size="12" font-weight="700" fill="#4A7BD0" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">1.2</text>
+  <text x="374" y="244" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">تنظيم الذاكرة</text>
+  <text x="54" y="268" font-size="18" font-weight="700" fill="#EEF1FF">Memory map</text>
+  <text x="54" y="290" font-size="12.5" fill="#AEB8E8">Address space as a tower, 0x0000 at the bottom</text>
+</g>
+<g class="card" style="animation-delay:0.16s">
+  <rect x="30" y="324" width="360" height="96" rx="14" fill="#1A2045" stroke="#4A7BD0" stroke-opacity=".45"/>
+  <rect x="30" y="324" width="5" height="96" rx="2.5" fill="#4A7BD0"/>
+  <text x="54" y="356" font-size="12" font-weight="700" fill="#4A7BD0" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">1.3</text>
+  <text x="374" y="356" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">المسجلات</text>
+  <text x="54" y="380" font-size="18" font-weight="700" fill="#EEF1FF">Registers</text>
+  <text x="54" y="402" font-size="12.5" fill="#AEB8E8">R0–R15 as 16×16 bits running 5+4+3+2+1</text>
+</g>
+<g class="card" style="animation-delay:0.24s">
+  <rect x="30" y="436" width="360" height="96" rx="14" fill="#1A2045" stroke="#4A7BD0" stroke-opacity=".45"/>
+  <rect x="30" y="436" width="5" height="96" rx="2.5" fill="#4A7BD0"/>
+  <text x="54" y="468" font-size="12" font-weight="700" fill="#4A7BD0" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">1.4</text>
+  <text x="374" y="468" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">أنماط العنونة</text>
+  <text x="54" y="492" font-size="18" font-weight="700" fill="#EEF1FF">Addressing modes</text>
+  <text x="54" y="514" font-size="12.5" fill="#AEB8E8">Where the operand comes from, in all seven</text>
+</g>
+<text x="420" y="58" font-size="18" font-weight="700" fill="#EEF1FF">Part 2 · Pins &amp; timing</text>
+<text x="780" y="58" font-size="16" fill="#2FA371" text-anchor="start" direction="rtl">الأطراف والتوقيت</text>
+<rect class="bar" style="animation-delay:0.15s" x="420" y="72" width="360" height="4" rx="2" fill="#2FA371"/>
+<g class="card" style="animation-delay:0.32s">
+  <rect x="420" y="100" width="360" height="96" rx="14" fill="#1A2045" stroke="#2FA371" stroke-opacity=".45"/>
+  <rect x="420" y="100" width="5" height="96" rx="2.5" fill="#2FA371"/>
+  <text x="444" y="132" font-size="12" font-weight="700" fill="#2FA371" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">2.1</text>
+  <text x="764" y="132" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">مخطط الأطراف</text>
+  <text x="444" y="156" font-size="18" font-weight="700" fill="#EEF1FF">Pinout</text>
+  <text x="444" y="178" font-size="12.5" fill="#AEB8E8">All 64 pins, coloured by port</text>
+</g>
+<g class="card" style="animation-delay:0.40s">
+  <rect x="420" y="212" width="360" height="96" rx="14" fill="#1A2045" stroke="#2FA371" stroke-opacity=".45"/>
+  <rect x="420" y="212" width="5" height="96" rx="2.5" fill="#2FA371"/>
+  <text x="444" y="244" font-size="12" font-weight="700" fill="#2FA371" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">2.2</text>
+  <text x="764" y="244" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">الدخل والخرج العام</text>
+  <text x="444" y="268" font-size="18" font-weight="700" fill="#EEF1FF">GPIO</text>
+  <text x="444" y="290" font-size="12.5" fill="#AEB8E8">LED on P1.0, button on P1.1, P1DIR/OUT/IN</text>
+</g>
+<g class="card" style="animation-delay:0.48s">
+  <rect x="420" y="324" width="360" height="96" rx="14" fill="#1A2045" stroke="#2FA371" stroke-opacity=".45"/>
+  <rect x="420" y="324" width="5" height="96" rx="2.5" fill="#2FA371"/>
+  <text x="444" y="356" font-size="12" font-weight="700" fill="#2FA371" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">2.3</text>
+  <text x="764" y="356" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">نظام الساعة</text>
+  <text x="444" y="380" font-size="18" font-weight="700" fill="#EEF1FF">Clock system</text>
+  <text x="444" y="402" font-size="12.5" fill="#AEB8E8">Three sources, three clocks, low-power modes</text>
+</g>
+<g class="card" style="animation-delay:0.56s">
+  <rect x="420" y="436" width="360" height="96" rx="14" fill="#1A2045" stroke="#2FA371" stroke-opacity=".45"/>
+  <rect x="420" y="436" width="5" height="96" rx="2.5" fill="#2FA371"/>
+  <text x="444" y="468" font-size="12" font-weight="700" fill="#2FA371" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">2.4</text>
+  <text x="764" y="468" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">المؤقتات</text>
+  <text x="444" y="492" font-size="18" font-weight="700" fill="#EEF1FF">Timer_A &amp; PWM</text>
+  <text x="444" y="514" font-size="12.5" fill="#AEB8E8">Count to TACCR0, reset at TACCR1, motor speed</text>
+</g>
+<text x="810" y="58" font-size="18" font-weight="700" fill="#EEF1FF">Part 3 · ADC &amp; comms</text>
+<text x="1170" y="58" font-size="16" fill="#D9822B" text-anchor="start" direction="rtl">التحليل والاتصال</text>
+<rect class="bar" style="animation-delay:0.30s" x="810" y="72" width="360" height="4" rx="2" fill="#D9822B"/>
+<g class="card" style="animation-delay:0.64s">
+  <rect x="810" y="100" width="360" height="96" rx="14" fill="#1A2045" stroke="#D9822B" stroke-opacity=".45"/>
+  <rect x="810" y="100" width="5" height="96" rx="2.5" fill="#D9822B"/>
+  <text x="834" y="132" font-size="12" font-weight="700" fill="#D9822B" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">3.1</text>
+  <text x="1154" y="132" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">المزايا والعيوب</text>
+  <text x="834" y="156" font-size="18" font-weight="700" fill="#EEF1FF">Pros &amp; cons</text>
+  <text x="834" y="178" font-size="12.5" fill="#AEB8E8">Green and red balls orbiting the chip</text>
+</g>
+<g class="card" style="animation-delay:0.72s">
+  <rect x="810" y="212" width="360" height="96" rx="14" fill="#1A2045" stroke="#D9822B" stroke-opacity=".45"/>
+  <rect x="810" y="212" width="5" height="96" rx="2.5" fill="#D9822B"/>
+  <text x="834" y="244" font-size="12" font-weight="700" fill="#D9822B" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">3.2</text>
+  <text x="1154" y="244" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">المحول ADC</text>
+  <text x="834" y="268" font-size="18" font-weight="700" fill="#EEF1FF">12-bit ADC</text>
+  <text x="834" y="290" font-size="12.5" fill="#AEB8E8">A potentiometer filling a column to 4095</text>
+</g>
+<g class="card" style="animation-delay:0.80s">
+  <rect x="810" y="324" width="360" height="96" rx="14" fill="#1A2045" stroke="#D9822B" stroke-opacity=".45"/>
+  <rect x="810" y="324" width="5" height="96" rx="2.5" fill="#D9822B"/>
+  <text x="834" y="356" font-size="12" font-weight="700" fill="#D9822B" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">3.3</text>
+  <text x="1154" y="356" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">واجهات الاتصال</text>
+  <text x="834" y="380" font-size="18" font-weight="700" fill="#EEF1FF">UART · SPI · I²C</text>
+  <text x="834" y="402" font-size="12.5" fill="#AEB8E8">A byte sent bit by bit on the wires</text>
+</g>
+<g class="card" style="animation-delay:0.88s">
+  <rect x="810" y="436" width="360" height="96" rx="14" fill="#1A2045" stroke="#D9822B" stroke-opacity=".45"/>
+  <rect x="810" y="436" width="5" height="96" rx="2.5" fill="#D9822B"/>
+  <text x="834" y="468" font-size="12" font-weight="700" fill="#D9822B" font-family="'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace">3.4</text>
+  <text x="1154" y="468" font-size="13" fill="#AEB8E8" text-anchor="start" direction="rtl">المقاطعات</text>
+  <text x="834" y="492" font-size="18" font-weight="700" fill="#EEF1FF">Interrupts</text>
+  <text x="834" y="514" font-size="12.5" fill="#AEB8E8">PC and SR on the stack, vector, RETI</text>
+</g>
+</g></svg>
