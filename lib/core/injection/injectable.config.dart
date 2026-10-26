@@ -33,6 +33,16 @@ import 'package:msp430_lab/features/root/presentation/ui/widgets/nav_bar/navigat
     as _i245;
 import 'package:msp430_lab/features/root/presentation/ui/widgets/nav_bar/side_nav_controller.dart'
     as _i409;
+import 'package:msp430_lab/features/topics/data/datasources/topics_local_datasource.dart'
+    as _i279;
+import 'package:msp430_lab/features/topics/data/repositories/topics_repository_impl.dart'
+    as _i1020;
+import 'package:msp430_lab/features/topics/domain/facade/topics_facade.dart'
+    as _i867;
+import 'package:msp430_lab/features/topics/domain/repositories/topics_repository.dart'
+    as _i868;
+import 'package:msp430_lab/features/topics/presentation/states/topics_bloc.dart'
+    as _i931;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -55,6 +65,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i245.NavigationController>(
       () => _i245.NavigationController(),
     );
+    gh.lazySingleton<_i279.TopicsLocalDataSource>(
+      () => const _i279.TopicsLocalDataSource(),
+    );
     gh.lazySingleton<_i447.AppRouterConfig>(
       () => _i447.AppRouterConfig(gh<_i447.AppRouteRegistry>()),
     );
@@ -67,10 +80,19 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i409.SideNavController>(
       () => _i409.SideNavController(gh<_i717.StorageService>()),
     );
+    gh.lazySingleton<_i868.TopicsRepository>(
+      () => _i1020.TopicsRepositoryImpl(gh<_i279.TopicsLocalDataSource>()),
+    );
     gh.lazySingleton<_i511.RootFacade>(
       () => _i511.RootFacade(gh<_i490.RootRepository>()),
     );
+    gh.lazySingleton<_i867.TopicsFacade>(
+      () => _i867.TopicsFacade(gh<_i868.TopicsRepository>()),
+    );
     gh.factory<_i854.RootBloc>(() => _i854.RootBloc(gh<_i511.RootFacade>()));
+    gh.factory<_i931.TopicsBloc>(
+      () => _i931.TopicsBloc(gh<_i867.TopicsFacade>()),
+    );
     return this;
   }
 }

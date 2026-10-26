@@ -27,12 +27,12 @@ class AppColors {
 
   // ───────────────────────────── Light scheme
 
-  static const Color primaryLight = Color(0xFF3B5BDB);
+  static const Color primaryLight = Color(0xFF1B7350);
   static const Color onPrimaryLight = Color(0xFFFFFFFF);
-  static const Color primaryContainerLight = Color(0xFFE3E8FB);
-  static const Color onPrimaryContainerLight = Color(0xFF1E2F72);
+  static const Color primaryContainerLight = Color(0xFFE2F0E7);
+  static const Color onPrimaryContainerLight = Color(0xFF14563D);
 
-  static const Color secondaryLight = Color(0xFF5C6B8A);
+  static const Color secondaryLight = Color(0xFF5A6670);
   static const Color onSecondaryLight = Color(0xFFFFFFFF);
   static const Color secondaryContainerLight = Color(0xFFE1E6F0);
   static const Color onSecondaryContainerLight = Color(0xFF2A3347);
@@ -46,7 +46,7 @@ class AppColors {
 
   /// Screen background — NOT the card colour ([surfaceLight]). A cool grey that
   /// reads as grey beside the white cards (it was #F5F6F8, which looked white).
-  static const Color backGroundLight = Color(0xFFEDF0F5);
+  static const Color backGroundLight = Color(0xFFF2F4F3);
 
   /// Cards, bottom sheets, dialogs.
   static const Color surfaceLight = Color(0xFFFFFFFF);

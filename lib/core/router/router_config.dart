@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import '../../core/router/app_page_transitions.dart';
 import '../../features/root/presentation/ui/screens/root_screen.dart';
 import '../../features/splash/presentation/ui/screens/splash_screen.dart';
-import '../../features/topic/presentation/ui/screens/topic_screen.dart';
+import '../../features/topics/presentation/ui/screens/topic_screen.dart';
 import '../../utils/constants/app_flow_constants.dart';
 import '../../utils/helpers/colored_print.dart';
 

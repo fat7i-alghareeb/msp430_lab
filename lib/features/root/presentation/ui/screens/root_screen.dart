@@ -8,7 +8,9 @@ import '../widgets/nav_bar/navigation_controller.dart';
 import '../widgets/nav_bar/navigation_scope.dart';
 import '../widgets/nav_bar/side_nav_controller.dart';
 import '../widgets/root_back_guard.dart';
-import '../widgets/root_tab_placeholder.dart';
+import '../../../../about/presentation/ui/screens/about_screen.dart';
+import '../../../../home/presentation/ui/screens/home_screen.dart';
+import '../../../../topics/presentation/ui/screens/topics_list_screen.dart';
 import '../widgets/root_tab_stack.dart';
 import '../widgets/tab_switch_stager.dart';
 
@@ -30,8 +32,7 @@ import '../widgets/tab_switch_stager.dart';
 /// - Tabs own no scaffold: two scaffolds stacked would give the page two
 ///   grounds and two safe areas.
 ///
-/// The three destinations below are placeholders — replace them with the
-/// app's own tabs (five is the ceiling).
+/// Three tabs: the 3D chip, the topic list, and about.
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
 
@@ -114,9 +115,9 @@ class _RootScreenState extends State<RootScreen> {
 
     // One builder per tab, in the order of the bar.
     final pageBuilders = <WidgetBuilder>[
-      (_) => RootTabPlaceholder(title: AppStrings.navHome),
-      (_) => RootTabPlaceholder(title: AppStrings.navTopics),
-      (_) => RootTabPlaceholder(title: AppStrings.navAbout),
+      (_) => const HomeScreen(),
+      (_) => const TopicsListScreen(),
+      (_) => const AboutScreen(),
     ];
 
     // Where the destinations go is the window's call, not the device's

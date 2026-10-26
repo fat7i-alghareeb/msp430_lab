@@ -7,6 +7,18 @@ class AppStrings {
   static String a11yPositionOf(Object p1, Object p2) => 'a11y.positionOf'.tr(args: <String>[p1.toString(), p2.toString()]);
   /// , - ،
   static String get a11ySeparator => 'a11y.separator'.tr();
+  /// MSP430 Lab explains the TI MSP430F149 microcontroller in 3D. Every topic of the paper has a scene you can turn and try, and a tour that explains it step by step. - يشرح MSP430 Lab متحكم MSP430F149 بمشاهد ثلاثية الأبعاد. لكل موضوع من مواضيع البحث مشهد تديره وتجرّبه، وجولة تشرحه خطوة بخطوة.
+  static String get aboutBody => 'about.body'.tr();
+  /// Chris Nagy, Embedded Systems Design using the TI MSP430 Series (Newnes, 2003) - Chris Nagy, Embedded Systems Design using the TI MSP430 Series (Newnes, 2003)
+  static String get aboutBook => 'about.book'.tr();
+  /// MSP430F149 datasheet - ورقة بيانات MSP430F149
+  static String get aboutDatasheet => 'about.datasheet'.tr();
+  /// Sources - المصادر
+  static String get aboutSources => 'about.sources'.tr();
+  /// About MSP430 Lab - عن MSP430 Lab
+  static String get aboutTitle => 'about.title'.tr();
+  /// The twelve topics - المواضيع الاثنا عشر
+  static String get aboutTopics => 'about.topics'.tr();
   /// Back - رجوع
   static String get actionBack => 'action.back'.tr();
   /// Clear search - مسح البحث
@@ -105,6 +117,10 @@ class AppStrings {
   static String get galleryNext => 'gallery.next'.tr();
   /// Previous image - الصورة السابقة
   static String get galleryPrevious => 'gallery.previous'.tr();
+  /// Tap a number on the chip, or pick from the list. - اضغط رقماً على الشريحة أو اختر من القائمة.
+  static String get homeHint => 'home.hint'.tr();
+  /// Pick a topic - اختر موضوعاً
+  static String get homePick => 'home.pick'.tr();
   /// Jan - ينا
   static String get jan => 'jan'.tr();
   /// January - يناير
@@ -285,6 +301,34 @@ class AppStrings {
   static String get timeYesterday => 'time.yesterday'.tr();
   /// To - إلى
   static String get to => 'to'.tr();
+  /// {} of 12 - {} من 12
+  static String topicCounter(Object p1) => 'topic.counter'.tr(args: <String>[p1.toString()]);
+  /// From the book: {} - من الكتاب: {}
+  static String topicFromBook(Object p1) => 'topic.fromBook'.tr(args: <String>[p1.toString()]);
+  /// ← next · → previous · Space tour · Esc back · R camera - ← التالي · → السابق · Space الجولة · Esc رجوع · R الكاميرا
+  static String get topicKeys => 'topic.keys'.tr();
+  /// Next topic - الموضوع التالي
+  static String get topicNext => 'topic.next'.tr();
+  /// Part {} · {} - الجزء {} · {}
+  static String topicPartOf(Object p1, Object p2) => 'topic.partOf'.tr(args: <String>[p1.toString(), p2.toString()]);
+  /// Previous topic - الموضوع السابق
+  static String get topicPrevious => 'topic.previous'.tr();
+  /// Reset camera - إعادة الكاميرا
+  static String get topicResetCamera => 'topic.resetCamera'.tr();
+  /// The theory - الفكرة النظرية
+  static String get topicTheory => 'topic.theory'.tr();
+  /// Try it yourself - جرّب بنفسك
+  static String get topicTryIt => 'topic.tryIt'.tr();
+  /// Values - القيم
+  static String get topicValues => 'topic.values'.tr();
+  /// Next step - الخطوة التالية
+  static String get tourNextStep => 'tour.nextStep'.tr();
+  /// Pause the tour - إيقاف الجولة
+  static String get tourPause => 'tour.pause'.tr();
+  /// Play the tour - تشغيل الجولة
+  static String get tourPlay => 'tour.play'.tr();
+  /// Previous step - الخطوة السابقة
+  static String get tourPreviousStep => 'tour.previousStep'.tr();
   /// Tue - ثلا
   static String get tue => 'tue'.tr();
   /// Tuesday - الثلاثاء

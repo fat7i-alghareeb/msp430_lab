@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'common/widgets/rebuild_on_locale_change.dart';
@@ -24,6 +25,7 @@ import 'core/window/app_title_bar.dart';
 import 'features/root/presentation/ui/screens/root_screen.dart';
 import 'features/root/presentation/ui/widgets/nav_bar/navigation_controller.dart';
 import 'features/root/presentation/ui/widgets/nav_bar/side_nav_controller.dart';
+import 'features/topics/presentation/states/topics_bloc.dart';
 import 'utils/constants/design_constants.dart';
 
 /// The page name the desktop title bar shows beside the app's: the open tab
@@ -125,20 +127,20 @@ class _AppState extends State<App> {
 
   AppTitleBarConfig _titleBarConfig() {
     if (!AppPlatform.hasDesktopWindow) return const AppTitleBarConfig();
-    final sideNav = getIt.isRegistered<SideNavController>()
-        ? getIt<SideNavController>()
-        : null;
-    return AppTitleBarConfig(
-      pageTitle: _pageTitle,
-      onToggleSidebar: sideNav?.toggle,
-    );
+    // No sidebar button in the title bar: the sidebar has its own collapse
+    // item, and Ctrl+B still toggles it.
+    return AppTitleBarConfig(pageTitle: _pageTitle);
   }
 
   @override
   Widget build(BuildContext context) {
     final appRouterConfig = getIt<AppRouterConfig>();
 
-    return MaterialApp.router(
+    // The topics are loaded once and shared by every screen, so they sit
+    // above the navigator.
+    return BlocProvider<TopicsBloc>(
+      create: (_) => getIt<TopicsBloc>()..add(const TopicsEvent.started()),
+      child: MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: AppConfig.appTitle,
       theme: AppTheme.light,
@@ -153,7 +155,17 @@ class _AppState extends State<App> {
       scrollBehavior: const AppScrollBehavior(),
       builder: (context, child) {
         final overlayStyle = AppSystemUiOverlay.forTheme(Theme.of(context));
-        final app = child ?? const SizedBox.shrink();
+        var app = child ?? const SizedBox.shrink();
+        // Windows is shown on the room's screen: everything a step larger.
+        if (AppPlatform.hasDesktopWindow) {
+          final media = MediaQuery.of(context);
+          app = MediaQuery(
+            data: media.copyWith(
+              textScaler: TextScaler.linear(media.textScaler.scale(1) * 1.15),
+            ),
+            child: app,
+          );
+        }
 
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: overlayStyle,
@@ -188,6 +200,7 @@ class _AppState extends State<App> {
           ),
         );
       },
+      ),
     );
   }
 }
