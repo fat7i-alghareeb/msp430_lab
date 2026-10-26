@@ -1,0 +1,3 @@
+class RootParams {
+  const RootParams();
+}

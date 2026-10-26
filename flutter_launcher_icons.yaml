@@ -1,0 +1,33 @@
+# App icon. Put a 1024×1024 PNG (no transparency for iOS) at
+# assets/images/app_icon.png — and, for Android's adaptive icon, a foreground
+# with the logo inside the centre 66% at assets/images/app_icon_foreground.png
+# — then run:
+#   dart run flutter_launcher_icons -f flutter_launcher_icons.yaml
+#
+# Windows (.ico) and macOS (.icns) icons come from the same image — 1024×1024
+# is plenty. Windows reads it down to 256.
+#
+# The images are NOT shipped with the template: every app needs its own.
+
+flutter_launcher_icons:
+  image_path: "assets/images/app_icon.png"
+
+  android: "ic_launcher"
+  min_sdk_android: 24
+  adaptive_icon_background: "#EDF0F5"
+  adaptive_icon_foreground: "assets/images/app_icon_foreground.png"
+  # A single-colour version for Android 13+ themed icons (optional):
+  # adaptive_icon_monochrome: "assets/images/app_icon_monochrome.png"
+
+  ios: true
+  remove_alpha_ios: true
+
+  # Desktop. Written into windows/ and macos/, so it only applies to a
+  # project made with those platforms (`flutter create --platforms=…`).
+  windows:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: "assets/images/app_icon.png"
