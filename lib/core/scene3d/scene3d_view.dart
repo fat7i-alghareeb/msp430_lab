@@ -185,6 +185,22 @@ class _Scene3DViewState extends State<Scene3DView>
     }
   }
 
+  // A Windows precision touchpad sends pan/zoom events, not wheel events: a
+  // pinch carries a cumulative `scale`, a two-finger swipe a `panDelta`.
+  double _padScale = 1;
+
+  void _onPadStart(PointerPanZoomStartEvent e) => _padScale = 1;
+
+  void _onPadUpdate(PointerPanZoomUpdateEvent e) {
+    if (e.scale != _padScale && e.scale > 0) {
+      widget.camera.zoom(_padScale / e.scale);
+      _padScale = e.scale;
+    }
+    if (e.panDelta.dy != 0) {
+      widget.camera.zoom(math.pow(1.0015, -e.panDelta.dy).toDouble());
+    }
+  }
+
   void _onSignal(PointerSignalEvent e) {
     if (e is PointerScrollEvent) {
       widget.camera.zoom(math.pow(1.0015, e.scrollDelta.dy).toDouble());
@@ -209,6 +225,8 @@ class _Scene3DViewState extends State<Scene3DView>
             onPointerUp: _onUp,
             onPointerCancel: _onUp,
             onPointerSignal: _onSignal,
+            onPointerPanZoomStart: _onPadStart,
+            onPointerPanZoomUpdate: _onPadUpdate,
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[

@@ -14,13 +14,13 @@ flutter_launcher_icons:
 
   android: "ic_launcher"
   min_sdk_android: 24
-  adaptive_icon_background: "#EDF0F5"
+  adaptive_icon_background: "assets/images/app_icon_background.png"
   adaptive_icon_foreground: "assets/images/app_icon_foreground.png"
   # A single-colour version for Android 13+ themed icons (optional):
   # adaptive_icon_monochrome: "assets/images/app_icon_monochrome.png"
 
-  ios: true
-  remove_alpha_ios: true
+  # No ios/ or macos/ folder in this project (Android + Windows only).
+  ios: false
 
   # Desktop. Written into windows/ and macos/, so it only applies to a
   # project made with those platforms (`flutter create --platforms=…`).
@@ -29,5 +29,4 @@ flutter_launcher_icons:
     image_path: "assets/images/app_icon.png"
     icon_size: 256
   macos:
-    generate: true
-    image_path: "assets/images/app_icon.png"
+    generate: false

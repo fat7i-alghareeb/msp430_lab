@@ -46,6 +46,7 @@ dev_dependencies:
   freezed: ^3.2.5
   flutter_gen_runner: ^5.14.1
   vector_graphics_compiler: ^1.2.5
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
